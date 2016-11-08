@@ -26,11 +26,11 @@ while( $input = readline() ) {
   $pid = pcntl_fork();
   if ($pid === -1) { die(); }
   elseif ($pid === 0) {
-    $re1 = '\d (\S+) \[.*The new session \"(.+)\" has been created.';
+    $re1 = '\[.*The new session \"(.+)\" has been created.';
     if ($c=preg_match_all ("/".$re1."/is", $input, $matches))
     {
-      	$softetherip=$matches[1][0];
-	$sessid=$matches[2][0];
+      //$softetherip=$matches[1][0];
+      $sessid=$matches[1][0];
     }
     
     if (empty($sessid)) { exit; }
